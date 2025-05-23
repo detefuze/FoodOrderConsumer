@@ -1,6 +1,5 @@
 package com.ru.klimashd.services;
 
-import com.ru.klimashd.dto.BasketDTO;
 import com.ru.klimashd.repositories.*;
 import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;

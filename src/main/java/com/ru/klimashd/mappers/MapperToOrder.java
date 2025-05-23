@@ -1,6 +1,5 @@
 package com.ru.klimashd.mappers;
 
-import com.ru.klimashd.dto.BasketDTO;
 import com.ru.klimashd.entities.CustomerOrder;
 import org.springframework.stereotype.Component;
 

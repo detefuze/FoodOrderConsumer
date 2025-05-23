@@ -2,9 +2,6 @@ package com.ru.klimashd.components;
 
 import com.ru.klimashd.dto.BasketDTO;
 import com.ru.klimashd.services.OrderConsumerService;
-import lombok.AllArgsConstructor;
-import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.kafka.annotation.KafkaListener;
