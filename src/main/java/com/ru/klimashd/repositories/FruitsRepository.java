@@ -1,6 +1,6 @@
 package com.ru.klimashd.repositories;
 
-import com.ru.klimashd.entities.Fruits;
+import com.ru.foodshop_entities.Fruits;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

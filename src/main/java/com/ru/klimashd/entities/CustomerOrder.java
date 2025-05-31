@@ -10,26 +10,11 @@ import java.time.LocalDateTime;
 public class CustomerOrder {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    @Column
+    @Column(name = "order_id")
     private int id;
 
     @Column
-    private int order_id;
-
-    @Column(name="product_type")
-    private String productType;
-
-    @Column
-    private String name;
-
-    @Column
-    private int amount;
-
-    @Column
-    private int price;
-
-    @Column
-    private int id_product;
+    private String order_info;
 
     @CreationTimestamp
     @Column
@@ -39,51 +24,11 @@ public class CustomerOrder {
         return id;
     }
 
-    public int getOrder_id() {
-        return order_id;
+    public String getOrder_info() {
+        return order_info;
     }
 
-    public void setOrder_id(int order_id) {
-        this.order_id = order_id;
-    }
-
-    public String getProductType() {
-        return productType;
-    }
-
-    public void setProductType(String productType) {
-        this.productType = productType;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public int getAmount() {
-        return amount;
-    }
-
-    public void setAmount(int amount) {
-        this.amount = amount;
-    }
-
-    public int getPrice() {
-        return price;
-    }
-
-    public void setPrice(int price) {
-        this.price = price;
-    }
-
-    public int getId_product() {
-        return id_product;
-    }
-
-    public void setId_product(int id_product) {
-        this.id_product = id_product;
+    public void setOrder_info(String order_info) {
+        this.order_info = order_info;
     }
 }

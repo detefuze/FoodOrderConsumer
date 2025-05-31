@@ -22,16 +22,16 @@
 
   <dependencies>
     <dependency>
+      <groupId>com.ru.klimashd.foodshop-entities</groupId>
+      <artifactId>foodshop-entities</artifactId>
+      <version>1.0-SNAPSHOT</version>
+    </dependency>
+
+    <dependency>
       <groupId>org.springframework.kafka</groupId>
       <artifactId>spring-kafka</artifactId>
       <version>3.1.3</version>
     </dependency>
-
-    <!--     <dependency>-->
-    <!--      <groupId>org.projectlombok</groupId>-->
-    <!--      <artifactId>lombok</artifactId>-->
-    <!--      <scope>provided</scope>-->
-    <!--    </dependency>-->
 
     <dependency>
       <groupId>org.springframework.boot</groupId>
@@ -44,26 +44,7 @@
       <version>0.9.1</version>
     </dependency>
 
-    <!--    <dependency>-->
-    <!--      <groupId>org.springframework.boot</groupId>-->
-    <!--      <artifactId>spring-boot-starter-thymeleaf</artifactId>-->
-    <!--    </dependency>-->
 
-    <!--    <dependency>-->
-    <!--      <groupId>org.springframework.boot</groupId>-->
-    <!--      <artifactId>spring-boot-starter-security</artifactId>-->
-    <!--      <version>3.0.0</version>-->
-    <!--    </dependency>-->
-
-    <!--    <dependency>-->
-    <!--      <groupId>org.springframework.security</groupId>-->
-    <!--      <artifactId>spring-security-core</artifactId>-->
-    <!--    </dependency>-->
-
-    <!--    <dependency>-->
-    <!--      <groupId>org.springframework.security</groupId>-->
-    <!--      <artifactId>spring-security-config</artifactId>-->
-    <!--    </dependency>-->
 
         <dependency>
           <groupId>org.springframework.boot</groupId>
