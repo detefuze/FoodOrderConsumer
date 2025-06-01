@@ -9,11 +9,12 @@ import java.time.LocalDateTime;
 @Table(name = "orders")
 public class CustomerOrder {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    @Column(name = "order_id")
-    private int id;
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "order_id_seq")
+    @SequenceGenerator(name = "order_id_seq", sequenceName = "order_id_seq", allocationSize = 1)
+    @Column(name = "order_id", insertable = false, updatable = false)
+    private int order_id;
 
-    @Column
+    @Column(columnDefinition = "text")
     private String order_info;
 
     @CreationTimestamp
@@ -21,7 +22,7 @@ public class CustomerOrder {
     private LocalDateTime created_at;
 
     public int getId() {
-        return id;
+        return order_id;
     }
 
     public String getOrder_info() {

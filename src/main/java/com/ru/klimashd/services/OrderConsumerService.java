@@ -33,9 +33,9 @@ public class OrderConsumerService {
     @Transactional
     public void processOrder(List<BasketDTO> basketList) {
         if (processOrderService.processProducts(basketList)) {
-            List<CustomerOrder> orders = new MapperToOrder().mapListBasketToListOrder(
+            CustomerOrder order = new MapperToOrder().mapListBasketToOrder(
                     basketList);
-            orderRepository.saveAll(orders);
+            orderRepository.save(order);
             basketRepository.deleteAll();
             log_service.info("Processing order complete");
         }

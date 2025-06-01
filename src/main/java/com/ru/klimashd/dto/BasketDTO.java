@@ -78,13 +78,12 @@ public class BasketDTO {
 
     @Override
     public String toString() {
-        return "BasketDTO{" +
+        return "Product{" +
                 "name='" + name + '\'' +
                 ", order_amount=" + order_amount +
                 ", price=" + price +
                 ", product_id=" + product_id +
                 ", customer_id=" + customer_id +
-                ", product=" + product +
                 '}';
     }
 }

@@ -4,25 +4,18 @@ import com.ru.klimashd.dto.BasketDTO;
 import com.ru.klimashd.entities.CustomerOrder;
 import org.springframework.stereotype.Component;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Component
 public class MapperToOrder {
 
-    public CustomerOrder mapToOrder(BasketDTO basketDTO) {
+    public CustomerOrder mapToOrder(String basketDTO) {
         CustomerOrder order = new CustomerOrder();
-        order.setOrder_info(basketDTO.toString());
+        order.setOrder_info(basketDTO);
         return order;
     }
 
-    public List<CustomerOrder> mapListBasketToListOrder(List<BasketDTO> basket) {
-        List<CustomerOrder> orderList = new ArrayList<>();
-
-        for (BasketDTO pos : basket) {
-            orderList.add(mapToOrder(pos));
-        }
-
-        return orderList;
+    public CustomerOrder mapListBasketToOrder(List<BasketDTO> basket) {
+        return mapToOrder(basket.toString());
     }
 }
