@@ -4,12 +4,14 @@ package com.ru.klimashd.services;
 import com.ru.klimashd.dto.BasketDTO;
 import com.ru.klimashd.entities.CustomerOrder;
 import com.ru.klimashd.mappers.MapperToOrder;
-import com.ru.klimashd.repositories.BasketRepository;
 import com.ru.klimashd.repositories.OrderRepository;
 import jakarta.transaction.Transactional;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
 
 import java.util.List;
 
@@ -17,29 +19,32 @@ import java.util.List;
 public class OrderConsumerService {
 
     private final static Logger log_service = LoggerFactory.getLogger(OrderConsumerService.class);
+    private final RestTemplate restTemplate;
 
-    private final BasketRepository basketRepository;
     private final OrderRepository orderRepository;
-    private final ProcessOrderService processOrderService;
 
+    @Autowired
     public OrderConsumerService(OrderRepository orderRepository,
-                                BasketRepository basketRepository,
-                                ProcessOrderService processOrderService) {
+                                RestTemplate restTemplate) {
         this.orderRepository = orderRepository;
-        this.basketRepository = basketRepository;
-        this.processOrderService = processOrderService;
+        this.restTemplate = restTemplate;
     }
 
     @Transactional
     public void processOrder(List<BasketDTO> basketList) {
-        if (processOrderService.processProducts(basketList)) {
+        try {
             CustomerOrder order = new MapperToOrder().mapListBasketToOrder(
                     basketList);
             orderRepository.save(order);
-            basketRepository.deleteAll();
+
+            String uiServiceUrl = "http://localhost:8080/main_menu/getOrder";
+            ResponseEntity<String> consumerResponse = restTemplate.postForEntity(uiServiceUrl,
+                    basketList,
+                    String.class);
             log_service.info("Processing order complete");
-        }
-        else
+        } catch (Exception e) {
             log_service.error("Error in processing an order");
+            log_service.error("Exception: ", e);
+        }
     }
 }

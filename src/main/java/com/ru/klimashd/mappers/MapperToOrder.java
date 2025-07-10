@@ -11,7 +11,7 @@ public class MapperToOrder {
 
     public CustomerOrder mapToOrder(String basketDTO) {
         CustomerOrder order = new CustomerOrder();
-        order.setOrder_info(basketDTO);
+        order.setOrder_info(basketDTO.toString());
         return order;
     }
 
